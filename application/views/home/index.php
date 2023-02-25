@@ -204,8 +204,10 @@
                                                     <td class="bg-success"><?= $hs['MUTU2'] ?></td>
                                                 <?php } elseif ($hs['MUTU2'] == 'C') { ?>
                                                     <td class="bg-warning"><?= $hs['MUTU2'] ?></td>
-                                                <?php } else { ?>
+                                                <?php } elseif ($hs['MUTU2'] == 'D') { ?>
                                                     <td class="bg-danger"><?= $hs['MUTU2'] ?></td>
+                                                <?php } else { ?>
+                                                    <td></td>
                                                 <?php } ?>
 
 
