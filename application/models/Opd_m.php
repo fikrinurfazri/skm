@@ -7,12 +7,6 @@ class Opd_m extends CI_Model
 
         return $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
     }
-    public function hitungresponden()
-    {
-        $data = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
-        $this->db->select_sum('U1')
-            ->from('t_skm');
-    }
 
     public function getall()
     {
@@ -21,25 +15,8 @@ class Opd_m extends CI_Model
             ->join('m_unsur ', 'm_unsur.ID_UNSUR = m_nilai.ID_UNSUR')
             ->get()->result_array();
     }
-    public function nilai()
-    {
-        $table = 't_skm';
-        $field = 'U9';
-        $this->db->select_sum($field);
-        $query = $this->db->get($table);
-        $sum = $query->row()->$field;
-        return $sum;
-    }
-    public function getskm()
-    {
-        $tawal = '2023-01-01';
-        $takhir = '2023-06-31';
-        return $this->db->select('*')
-            ->from('admin AS `a`')
-            ->join('t_skm AS `b`', 'b.KODE_UNIT_KERJA = a.KODE_UNIT_KERJA', 'left')
-            ->where('TANGGAL BETWEEN "' . $tawal . '" and "' . $takhir . '"')
-            ->get()->result();
-    }
+
+
     public function cek_data($id)
     {
         $query = $this->db->get_where('t_hasil', array('KODE_UNIT_KERJA' => $id));
@@ -59,25 +36,28 @@ class Opd_m extends CI_Model
             $this->db->insert('t_hasil', $data);
         }
     }
-    public function getnilai()
-    {
-        $data = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
-        return $this->db->select('*')
-            ->from('t_skm')
-            ->where('KODE_UNIT_KERJA', $data['KODE_UNIT_KERJA'])
-            ->get()->result_array();
-    }
-    public function count($id)
-    {
-        $this->db->like('KODE_UNIT_KERJA', $id);
-        return $this->db->count_all_results('t_skm');
-    }
+
     public function U1()
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
         $field = 'U1';
+        $t_awal = '01';
+        $t_akhir = '06';
         $this->db->select_sum($field);
         $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get('t_skm');
+        return $query->row()->$field;
+    }
+    public function U1_2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $field = 'U1';
+        $t_awal = '07';
+        $t_akhir = '12';
+        $this->db->select_sum($field);
+        $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
         $query = $this->db->get('t_skm');
         return $query->row()->$field;
     }
@@ -85,8 +65,23 @@ class Opd_m extends CI_Model
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
         $field = 'U2';
+        $t_awal = '01';
+        $t_akhir = '06';
         $this->db->select_sum($field);
         $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get('t_skm');
+        return $query->row()->$field;
+    }
+    public function U2_2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $field = 'U2';
+        $t_awal = '07';
+        $t_akhir = '12';
+        $this->db->select_sum($field);
+        $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
         $query = $this->db->get('t_skm');
         return $query->row()->$field;
     }
@@ -94,8 +89,23 @@ class Opd_m extends CI_Model
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
         $field = 'U3';
+        $t_awal = '01';
+        $t_akhir = '06';
         $this->db->select_sum($field);
         $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get('t_skm');
+        return $query->row()->$field;
+    }
+    public function U3_2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $field = 'U3';
+        $t_awal = '07';
+        $t_akhir = '12';
+        $this->db->select_sum($field);
+        $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
         $query = $this->db->get('t_skm');
         return $query->row()->$field;
     }
@@ -103,8 +113,23 @@ class Opd_m extends CI_Model
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
         $field = 'U4';
+        $t_awal = '01';
+        $t_akhir = '06';
         $this->db->select_sum($field);
         $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get('t_skm');
+        return $query->row()->$field;
+    }
+    public function U4_2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $field = 'U4';
+        $t_awal = '07';
+        $t_akhir = '12';
+        $this->db->select_sum($field);
+        $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
         $query = $this->db->get('t_skm');
         return $query->row()->$field;
     }
@@ -112,8 +137,23 @@ class Opd_m extends CI_Model
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
         $field = 'U5';
+        $t_awal = '01';
+        $t_akhir = '06';
         $this->db->select_sum($field);
         $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get('t_skm');
+        return $query->row()->$field;
+    }
+    public function U5_2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $field = 'U5';
+        $t_awal = '07';
+        $t_akhir = '12';
+        $this->db->select_sum($field);
+        $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
         $query = $this->db->get('t_skm');
         return $query->row()->$field;
     }
@@ -121,8 +161,23 @@ class Opd_m extends CI_Model
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
         $field = 'U6';
+        $t_awal = '01';
+        $t_akhir = '06';
         $this->db->select_sum($field);
         $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get('t_skm');
+        return $query->row()->$field;
+    }
+    public function U6_2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $field = 'U6';
+        $t_awal = '07';
+        $t_akhir = '12';
+        $this->db->select_sum($field);
+        $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
         $query = $this->db->get('t_skm');
         return $query->row()->$field;
     }
@@ -130,8 +185,23 @@ class Opd_m extends CI_Model
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
         $field = 'U7';
+        $t_awal = '01';
+        $t_akhir = '06';
         $this->db->select_sum($field);
         $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get('t_skm');
+        return $query->row()->$field;
+    }
+    public function U7_2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $field = 'U7';
+        $t_awal = '07';
+        $t_akhir = '12';
+        $this->db->select_sum($field);
+        $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
         $query = $this->db->get('t_skm');
         return $query->row()->$field;
     }
@@ -139,8 +209,23 @@ class Opd_m extends CI_Model
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
         $field = 'U8';
+        $t_awal = '01';
+        $t_akhir = '06';
         $this->db->select_sum($field);
         $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get('t_skm');
+        return $query->row()->$field;
+    }
+    public function U8_2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $field = 'U8';
+        $t_awal = '07';
+        $t_akhir = '12';
+        $this->db->select_sum($field);
+        $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
         $query = $this->db->get('t_skm');
         return $query->row()->$field;
     }
@@ -148,8 +233,23 @@ class Opd_m extends CI_Model
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
         $field = 'U9';
+        $t_awal = '01';
+        $t_akhir = '06';
         $this->db->select_sum($field);
         $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get('t_skm');
+        return $query->row()->$field;
+    }
+    public function U9_2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $field = 'U9';
+        $t_awal = '07';
+        $t_akhir = '12';
+        $this->db->select_sum($field);
+        $this->db->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
         $query = $this->db->get('t_skm');
         return $query->row()->$field;
     }
@@ -157,9 +257,23 @@ class Opd_m extends CI_Model
     public function hitung_data()
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $t_awal = '01';
+        $t_akhir = '06';
         return  $this->db->select('KODE_UNIT_KERJA')
             ->from('t_skm')
             ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'")
+            ->get()->num_rows();
+    }
+    public function hitung_data_2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $t_awal = '07';
+        $t_akhir = '12';
+        return  $this->db->select('KODE_UNIT_KERJA')
+            ->from('t_skm')
+            ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'")
             ->get()->num_rows();
     }
 }

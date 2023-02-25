@@ -28,7 +28,7 @@ class Kuisioner extends CI_Controller
         $data = [
             'USIA' => $this->input->post('usia'),
             'JENIS_KELAMIN' => $this->input->post('jk'),
-            'ID_SKM' => $this->input->post('id_soal'),
+            'ID_SOAL' => $this->input->post('id_soal'),
             'PEKERJAAN' => $this->input->post('pekerjaan'),
             'PENDIDIKAN' => $this->input->post('pendidikan'),
         ];
@@ -38,6 +38,7 @@ class Kuisioner extends CI_Controller
 
             'PELAYANAN' => $this->input->post('pelayanan'),
             'KODE_UNIT_KERJA' => $this->input->post('kode'),
+            'ID_SOAL' => $this->input->post('id_soal'),
             'U1' => $this->input->post('u1'),
             'U2' => $this->input->post('u2'),
             'U3' => $this->input->post('u3'),

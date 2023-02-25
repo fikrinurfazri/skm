@@ -42,7 +42,11 @@ class Hasil_m extends CI_Model
     }
     public function cek_data($id)
     {
-        $query = $this->db->get_where('t_hasil', array('KODE_UNIT_KERJA' => $id));
+        // $query = $this->db->get_where('t_hasil', ['KODE_UNIT_KERJA' => $id]);
+        $this->db->where('KODE_UNIT_KERJA', $id);
+        $this->db->or_where('SEMESTER', 1);
+        $query = $this->db->get('t_hasil');
+
         if ($query->num_rows() > 0) {
             return true;
         } else {

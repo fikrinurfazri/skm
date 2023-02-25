@@ -189,15 +189,27 @@
                                                     <td class="bg-success"><?= $hs['MUTU'] ?></td>
                                                 <?php } elseif ($hs['MUTU'] == 'C') { ?>
                                                     <td class="bg-warning"><?= $hs['MUTU'] ?></td>
-                                                <?php } elseif ($hs['MUTU'] == 'D') { ?>
+                                                <?php } else { ?>
                                                     <td class="bg-danger"><?= $hs['MUTU'] ?></td>
                                                 <?php } ?>
 
 
-                                                <td>10</td>
-                                                <td>1,56</td>
-                                                <td>60</td>
-                                                <td class="bg-warning">C</td>
+                                                <td><?= $hs['RESPONDEN2'] ?></td>
+                                                <td><?= $hs['N_INDEX2'] ?></td>
+                                                <td><?= $hs['IKM2'] ?></td>
+
+                                                <?php if ($hs['MUTU2'] == 'A') { ?>
+                                                    <td class="bg-primary"><?= $hs['MUTU2'] ?></td>
+                                                <?php } elseif ($hs['MUTU2'] == 'B') { ?>
+                                                    <td class="bg-success"><?= $hs['MUTU2'] ?></td>
+                                                <?php } elseif ($hs['MUTU2'] == 'C') { ?>
+                                                    <td class="bg-warning"><?= $hs['MUTU2'] ?></td>
+                                                <?php } else { ?>
+                                                    <td class="bg-danger"><?= $hs['MUTU2'] ?></td>
+                                                <?php } ?>
+
+
+
                                             </tr>
                                         <?php endforeach ?>
                                     </tbody>
