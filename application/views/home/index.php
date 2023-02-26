@@ -194,7 +194,12 @@
                                                 <?php } ?>
 
 
-                                                <td><?= $hs['RESPONDEN2'] ?></td>
+                                                <?php if ($hs['RESPONDEN2'] == 1) { ?>
+                                                    <td>0</td>
+                                                <?php } else { ?>
+                                                    <td><?= $hs['RESPONDEN2'] ?></td>
+
+                                                <?php } ?>
                                                 <td><?= $hs['N_INDEX2'] ?></td>
                                                 <td><?= $hs['IKM2'] ?></td>
 
@@ -206,6 +211,45 @@
                                                     <td class="bg-warning"><?= $hs['MUTU2'] ?></td>
                                                 <?php } elseif ($hs['MUTU2'] == 'D') { ?>
                                                     <td class="bg-danger"><?= $hs['MUTU2'] ?></td>
+                                                <?php } else { ?>
+                                                    <td></td>
+                                                <?php } ?>
+
+
+
+                                            </tr>
+                                        <?php endforeach ?>
+                                        <?php foreach ($hasilkota as $hsk) : ?>
+                                            <tr class="align-middle">
+                                                <td>1</td>
+                                                <td><?= $hsk['NAMA'] ?></td>
+                                                <td><?= $hsk['RESPONDEN'] ?></td>
+                                                <td><?= $hsk['N_INDEX'] ?></td>
+                                                <td><?= $hsk['IKM'] ?></td>
+
+                                                <?php if ($hsk['MUTU'] == 'A') { ?>
+                                                    <td class="bg-primary"><?= $hsk['MUTU'] ?></td>
+                                                <?php } elseif ($hsk['MUTU'] == 'B') { ?>
+                                                    <td class="bg-success"><?= $hsk['MUTU'] ?></td>
+                                                <?php } elseif ($hsk['MUTU'] == 'C') { ?>
+                                                    <td class="bg-warning"><?= $hsk['MUTU'] ?></td>
+                                                <?php } else { ?>
+                                                    <td class="bg-danger"><?= $hsk['MUTU'] ?></td>
+                                                <?php } ?>
+
+
+                                                <td><?= $hsk['RESPONDEN2'] ?></td>
+                                                <td><?= $hsk['N_INDEX2'] ?></td>
+                                                <td><?= $hsk['IKM2'] ?></td>
+
+                                                <?php if ($hsk['MUTU2'] == 'A') { ?>
+                                                    <td class="bg-primary"><?= $hsk['MUTU2'] ?></td>
+                                                <?php } elseif ($hsk['MUTU2'] == 'B') { ?>
+                                                    <td class="bg-success"><?= $hsk['MUTU2'] ?></td>
+                                                <?php } elseif ($hsk['MUTU2'] == 'C') { ?>
+                                                    <td class="bg-warning"><?= $hsk['MUTU2'] ?></td>
+                                                <?php } elseif ($hsk['MUTU2'] == 'D') { ?>
+                                                    <td class="bg-danger"><?= $hsk['MUTU2'] ?></td>
                                                 <?php } else { ?>
                                                     <td></td>
                                                 <?php } ?>

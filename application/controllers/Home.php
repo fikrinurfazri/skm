@@ -10,7 +10,8 @@ class Home extends CI_Controller
 	}
 	public function index()
 	{
-		$data['hasil'] = $this->db->get_where('t_hasil', ['SEMESTER' => 1, 'LENGTH(KODE_UNIT_KERJA)' => 6])->result_array();
+		$data['hasil'] = $this->db->get_where('t_hasil', ['LENGTH(KODE_UNIT_KERJA)' => 6])->result_array();
+		$data['hasilkota'] = $this->db->get_where('t_hasil', ['LENGTH(KODE_UNIT_KERJA)' => 3])->result_array();
 
 		$this->load->view('pages/head');
 		$this->load->view('pages/nav');
