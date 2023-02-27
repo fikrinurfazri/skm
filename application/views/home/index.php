@@ -243,22 +243,24 @@
                     <h2>Berita dan Pengumuman</h2>
                 </div>
 
-                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
-                    <div class="custom-block-wrap shadow">
-                        <img src="<?= base_url() ?>assets/images/causes/berita1.jpg" class="custom-block-image img-fluid" alt="">
+                <?php foreach ($berita as $br) : ?>
 
-                        <div class="custom-block">
-                            <div class="custom-block-body">
-                                <h5 class="mb-3">RAPAT KOORDINASI DAN EVALUASI SATGAS TASIK RESIK KOTA TASIKMALAYA
-                                </h5>
-                                <!-- <p>Bertempat di Ruang Aula Balekota Tasikmalaya diadakan Rapat Koordinasi dan Evaluasi Satgas Tasik Resik Kota Tasikmalaya. </p> -->
+                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                        <div class="custom-block-wrap shadow">
+                            <img src="<?= base_url() ?>assets/upload/<?= $br['GAMBAR'] ?>" class="custom-block-image img-fluid" alt="">
 
+                            <div class="custom-block">
+                                <div class="custom-block-body">
+                                    <h5 class="mb-3"><?= $br['JUDUL'] ?>
+                                    </h5>
+
+                                </div>
+
+                                <a href="donate.html" class="custom-btn btn">Lihat Berita</a>
                             </div>
-
-                            <a href="donate.html" class="custom-btn btn">Lihat Berita</a>
                         </div>
                     </div>
-                </div>
+                <?php endforeach ?>
 
             </div>
         </div>

@@ -65,6 +65,11 @@
                             Kuisioner</a>
 
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= $this->router->class == 'berita' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/berita">
+                            Berita</a>
+
+                    </li>
 
 
                     <li class="nav-item dropdown">
