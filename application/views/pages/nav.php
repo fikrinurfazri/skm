@@ -66,12 +66,13 @@
                     <li class="nav-item">
                         <a class="nav-link click-scroll" href="#top">Beranda</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#section_1">Tentang</a>
+                        <a class="nav-link click-scroll" href="#section_1">Hasil Survei</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link click-scroll" href="#section_2">Hasil Survei</a>
-                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link click-scroll" href="#section_2">Tentang</a>
+                    </li> -->
 
 
 
