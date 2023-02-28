@@ -47,6 +47,12 @@
 <script src="<?= base_url() ?>assets/js/custom.js"></script>
 
 
+<script type="text/javascript" src="<?= base_url() ?>assets/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="<?= base_url() ?>assets/ckeditor/adapters/jquery.js"></script>
+<script type="text/javascript">
+    $('textarea.texteditor').ckeditor();
+</script>
+
 </body>
 
 </html>

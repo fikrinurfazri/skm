@@ -11,10 +11,10 @@
     <title>Survei Kepuasan Masyarakat</title>
 
     <!-- CSS FILES -->
+    <link rel="icon" href="<?= base_url() ?>/assets/images/logotasik.png" />
+
     <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="<?= base_url() ?>assets/css/bootstrap-icons.css" rel="stylesheet">
-
     <link href="<?= base_url() ?>assets/css/templatemo-kind-heart-charity.css" rel="stylesheet">
 
     <!--

@@ -9,6 +9,7 @@
     <meta name="author" content="">
 
     <title>Survei Kepuasan Masyarakat</title>
+    <link rel="icon" href="<?= base_url() ?>/assets/images/logotasik.png" />
 
     <!-- CSS FILES -->
     <link href="<?= base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">

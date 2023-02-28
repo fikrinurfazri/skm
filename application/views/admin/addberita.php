@@ -16,7 +16,7 @@
                                 <div class="row mb-3">
                                     <div class="form-group col-12 mb-2">
                                         <label for="isi">ISI</label>
-                                        <textarea name="isi" id="isi" cols="30" rows="10" class="form-control"></textarea>
+                                        <textarea name="isi" id="isi" cols="30" rows="10" class="texteditor"></textarea>
                                     </div>
                                 </div>
                                 <div class="row mb-3">

@@ -256,7 +256,7 @@
 
                                 </div>
 
-                                <a href="donate.html" class="custom-btn btn">Lihat Berita</a>
+                                <a href="<?= base_url() ?>home/detail/<?= $br['ID'] ?>" class="custom-btn btn">Lihat Berita</a>
                             </div>
                         </div>
                     </div>
