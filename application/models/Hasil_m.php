@@ -1,6 +1,6 @@
 <?php
 
-class Home_m extends CI_Model
+class Hasil_m extends CI_Model
 {
     public function getdetail($id)
     {

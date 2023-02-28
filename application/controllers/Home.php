@@ -6,7 +6,7 @@ class Home extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('home_m');
+		$this->load->model('hasil_m');
 	}
 	public function index()
 	{
@@ -21,9 +21,9 @@ class Home extends CI_Controller
 	}
 	public function detail($id)
 	{
-		$data['detail'] = $this->home_m->getdetail($id);
+		$data['detail'] = $this->hasil_m->getdetail($id);
 		$data['berita'] = $this->db->get('t_berita', 5)->result_array();
-		$berita = $this->home_m->getdetail($id);
+		$berita = $this->hasil_m->getdetail($id);
 		$data['title'] = $berita['JUDUL'];
 
 		$this->load->view('home/detailberita', $data);
