@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= $this->router->class == 'hasil' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/hasil/opd">
+                            <a class="nav-link <?= $this->router->class == 'hasil' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/hasil">
                                 Hasil Survei</a>
                         </li>
                     <?php } else { ?>
