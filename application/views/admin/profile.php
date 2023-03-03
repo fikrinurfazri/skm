@@ -7,33 +7,27 @@
 
                     <h2 class="mb-2"><i class="bi bi-people"></i> Profile</h2>
                     <div class="custom-text-box">
-                        <form action="<?= base_url() ?>kuisioner/kirim" method="post">
+                        <form action="<?= base_url() ?>admin/profile/simpan" method="post">
                             <p id="tanggal"> </p>
 
                             <h5 class="mb-3"> <i class="bi bi-people"> </i> Profile Admin</h5>
 
                             <div class="row mb-3">
-                                <div class="form-group col-3">
-                                    <label for="usia"> Unit Kerja</label>
-                                    <input type="text" name="usia" id="usia" value="<?= $user['NAMA'] ?>" class="form-control">
+                                <div class="form-group col-8">
+                                    <label for="nama"> Unit Kerja</label>
+                                    <input type="hidden" name="id" id="nama" value="<?= $user['ID_ADMIN'] ?>" class="form-control">
+                                    <input type="text" name="nama" id="nama" value="<?= $user['NAMA'] ?>" class="form-control">
                                 </div>
-
                                 <div class="form-group col-3">
-                                    <label for="usia"> Username</label>
-                                    <input type="text" name="usia" id="usia" value="<?= $user['USERNAME'] ?>" class="form-control">
+                                    <label for="kode"> Kode Unit Kerja</label>
+                                    <input type="text" name="kode" id="kode" value="<?= $user['USERNAME'] ?>" class="form-control">
                                 </div>
-
-
                             </div>
                             <div class="row mb-3">
 
-                                <div class="form-group col-3">
-                                    <label for="pekerjaan"> Kode Unit Kerja</label>
-                                    <input type="text" class="form-control" name="" id="" value="<?= $user['KODE_UNIT_KERJA'] ?>">
-                                </div>
-                                <div class="form-group col-3">
-                                    <label for="pekerjaan"> Pekerjaan</label>
-                                    <input type="text" class="form-control" name="" id="">
+                                <div class="form-group col-6">
+                                    <label for="kepala"> Kepala <?= $user['NAMA'] ?></label>
+                                    <input type="text" class="form-control" name="kepala" id="" value="<?= $user['KEPALA'] ?>">
                                 </div>
                             </div>
                             <button class="btn btn-primary" type="submit">Update</button>

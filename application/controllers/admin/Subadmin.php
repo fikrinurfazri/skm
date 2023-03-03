@@ -28,7 +28,7 @@ class Subadmin extends CI_Controller
         $password = $this->input->post('password');
         $data = [
             'NAMA' => $this->input->post('nama'),
-            'USERNAME' => $this->input->post('username'),
+            'USERNAME' => $this->input->post('kode_unker'),
             'LEVEL' => $this->input->post('level'),
             'KODE_UNIT_KERJA' => $this->input->post('kode_unker'),
             'PASSWORD' => password_hash($password, PASSWORD_DEFAULT),

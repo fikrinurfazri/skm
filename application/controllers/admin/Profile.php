@@ -22,16 +22,14 @@ class Profile extends CI_Controller
     }
     public function simpan()
     {
-        $password = $this->input->post('password');
+        $id = $this->input->post('id');
         $data = [
             'NAMA' => $this->input->post('nama'),
-            'USERNAME' => $this->input->post('username'),
-            'LEVEL' => $this->input->post('level'),
-            'KODE_UNIT_KERJA' => $this->input->post('kode_unker'),
-            'PASSWORD' => password_hash($password, PASSWORD_DEFAULT),
-            'last_login' => strtotime("now")
+            'USERNAME' => $this->input->post('kode'),
+            'KEPALA' => $this->input->post('kepala'),
         ];
+        $this->db->where('ID_ADMIN', $id);
         $this->db->update('admin', $data);
-        redirect('admin/soal');
+        redirect('admin/profile');
     }
 }

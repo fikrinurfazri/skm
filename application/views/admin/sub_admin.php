@@ -25,7 +25,6 @@
                                             <div class="form-group mb-2">
                                                 <label for="nama">Nama</label>
                                                 <input type="text" name="nama" id="nama" class="form-control">
-                                                <input type="hidden" name="username" id="username" value="<?= $unit['KODE'] ?>" class="form-control">
                                             </div>
                                             <div class="form-group mb-2">
                                                 <label for="kode_unker">Unit Kerja</label>
@@ -39,11 +38,7 @@
                                                 <label for="password">Password</label>
                                                 <input type="text" name="password" id="password" class="form-control">
                                                 <input type="hidden" name="level" id="level" value="3" class="form-control">
-
                                             </div>
-
-
-
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
