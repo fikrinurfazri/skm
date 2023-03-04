@@ -54,7 +54,7 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
 // if (defined('ENVIRONMENT') && ENVIRONMENT === 'production') {
 // 	error_reporting(0);
 // }
@@ -291,3 +291,4 @@ define('VIEWPATH', $view_folder . DIRECTORY_SEPARATOR);
  * And away we go...
  */
 require_once BASEPATH . 'core/CodeIgniter.php';
+ini_set('display_errors', 'off');

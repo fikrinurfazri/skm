@@ -5,12 +5,12 @@
     <section class="section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
-                    <div class="featured-block d-flex justify-content-center align-items-center">
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 ">
+                    <div class="featured-block d-flex justify-content-center shadow rounded-lg align-items-center">
                         <a href="donate.html" class="d-block">
-                            <img src="<?= base_url() ?>assets/images/icons/hands.png" class="featured-block-image img-fluid" alt="">
+                            <h1> 790</h1>
 
-                            <p class="featured-block-text">Become a <strong>volunteer</strong></p>
+                            <p class="featured-block-text"><strong>Responden</strong></p>
                         </a>
                     </div>
                 </div>

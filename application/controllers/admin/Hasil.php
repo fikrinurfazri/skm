@@ -194,6 +194,7 @@ class Hasil extends CI_Controller
             'NRRT' => number_format($nt, 2, '.', ','),
             'MUTU' => $mutu,
             'MUTU2' => $mutu2,
+            'TAHUN' => date('Y')
         ];
         $this->opd_m->simpan_data($data1);
 

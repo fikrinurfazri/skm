@@ -16,7 +16,9 @@ class User extends CI_Controller
     public function index()
     {
         $data['user'] = $this->user_m->getuser();
-        $data['getall'] = $this->db->get('admin')->result_array();
+        $data['getall'] = $this->user_m->getsubadmin();
+        $data['unker'] = $this->user_m->get();
+
         $this->load->view('pages/admin/head');
         $this->load->view('pages/admin/nav', $data);
         $this->load->view('admin/user');
@@ -27,13 +29,13 @@ class User extends CI_Controller
         $password = $this->input->post('password');
         $data = [
             'NAMA' => $this->input->post('nama'),
-            'USERNAME' => $this->input->post('username'),
+            'USERNAME' => $this->input->post('kode_unker'),
             'LEVEL' => $this->input->post('level'),
             'KODE_UNIT_KERJA' => $this->input->post('kode_unker'),
             'PASSWORD' => password_hash($password, PASSWORD_DEFAULT),
             'last_login' => strtotime("now")
         ];
         $this->db->insert('admin', $data);
-        redirect('admin/user');
+        redirect('admin/subadmin');
     }
 }
