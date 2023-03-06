@@ -276,4 +276,12 @@ class Opd_m extends CI_Model
             ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'")
             ->get()->num_rows();
     }
+    public function hasil()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        return $this->db->select('*')
+            ->from('t_hasil')
+            ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->get()->result_array();
+    }
 }

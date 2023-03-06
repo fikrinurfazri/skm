@@ -34,10 +34,10 @@
                             <a class="nav-link <?= $this->router->class == 'unsur_skm' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/master/unsur_skm">
                                 Unsur SKM</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link <?= $this->router->class == 'nilai' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/master/nilai">
                                 Nilai Unsur</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link <?= $this->router->class == 'pertanyaan' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/master/pertanyaan">
                                 Pertanyaan</a>
@@ -49,22 +49,24 @@
                                 Sub Admin
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link <?= $this->router->class == 'hasil' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/hasil">
-                                Hasil Survei</a>
+                            <a class="nav-link <?= $this->router->class == 'soal' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/soal">
+                                Kuisioner</a>
                         </li>
                     <?php } else { ?>
+
                         <li class="nav-item">
-                            <a class="nav-link <?= $this->router->class == 'hasil' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/hasil">
-                                Hasil Survei</a>
+                            <a class="nav-link <?= $this->router->class == 'soal' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/soal">
+                                Kuisioner</a>
                         </li>
 
                     <?php } ?>
                     <li class="nav-item">
-                        <a class="nav-link <?= $this->router->class == 'soal' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/soal">
-                            Kuisioner</a>
-
+                        <a class="nav-link <?= $this->router->class == 'hasil' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/hasil">
+                            Hasil Survei</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link <?= $this->router->class == 'berita' ? 'active' : ''; ?> " href="<?= base_url() ?>admin/berita">
                             Berita</a>

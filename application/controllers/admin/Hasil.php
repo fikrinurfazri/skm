@@ -16,9 +16,9 @@ class Hasil extends CI_Controller
     {
         $data['user'] = $this->opd_m->getuser();
         $user = $this->opd_m->getuser();
-        $data['hasil'] = $this->db->get_where('t_hasil', ['KODE_UNIT_KERJA' => $user['KODE_UNIT_KERJA']])->result_array();
+        // $data['hasil'] = $this->db->get_where('t_hasil', ['KODE_UNIT_KERJA' => $user['KODE_UNIT_KERJA']])->result_array();
 
-
+        $data['hasil'] = $this->opd_m->hasil();
         $data['responden'] = $this->opd_m->hitung_data();
         $cek = $this->opd_m->hitung_data();
         $responden2 = $this->opd_m->hitung_data_2();
