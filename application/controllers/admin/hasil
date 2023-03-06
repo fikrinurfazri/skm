@@ -1,0 +1,201 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Hasil extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('hasil_m');
+        $this->load->model('auth_m');
+        if (!$this->auth_m->current_user()) {
+            redirect('auth/login');
+        }
+    }
+    public function index()
+    {
+        $data['user'] = $this->hasil_m->getuser();
+        $user = $this->hasil_m->getuser();
+        $data['getnilai'] = $this->db->get('t_skm')->result_array();
+        // $query = $this->db->get('t_skm');
+        // $data['responden'] = $query->num_rows();
+        // $responden = $query->num_rows();
+        $this->db->where('KODE_UNIT_KERJA', $user['KODE_UNIT_KERJA']);
+        $this->db->from('t_skm');
+        $data['responden'] = $this->db->count_all_results();
+        $responden = $this->db->count_all_results();
+
+
+        $U1 = $this->hasil_m->U1();
+        $U2 = $this->hasil_m->U2();
+        $U3 = $this->hasil_m->U3();
+        $U4 = $this->hasil_m->U4();
+        $U5 = $this->hasil_m->U5();
+        $U6 = $this->hasil_m->U6();
+        $U7 = $this->hasil_m->U7();
+        $U8 = $this->hasil_m->U8();
+        $U9 = $this->hasil_m->U9();
+
+        //Unsur 1 - 9
+        $unsur = [
+            $U1, $U2, $U3, $U4, $U5, $U6, $U7, $U8, $U9
+        ];
+        $data['unsur'] = $unsur;
+
+        //Rata rata
+        $rr = [
+            $U1 / $responden,
+            $U2 / $responden,
+            $U3 / $responden,
+            $U4 / $responden,
+            $U5 / $responden,
+            $U6 / $responden,
+            $U7 / $responden,
+            $U8 / $responden,
+            $U9 / $responden,
+        ];
+        $data['rata'] = $rr;
+        $rata = ($U1 / $responden +
+            $U2 / $responden +
+            $U3 / $responden +
+            $U4 / $responden +
+            $U5 / $responden +
+            $U6 / $responden +
+            $U7 / $responden +
+            $U8 / $responden +
+            $U9 / $responden);
+
+        //Rata rata tertimbang
+        $nrrt = [
+            ($U1 / $responden) * 0.11,
+            ($U2 / $responden) * 0.11,
+            ($U3 / $responden) * 0.11,
+            ($U4 / $responden) * 0.11,
+            ($U5 / $responden) * 0.11,
+            ($U6 / $responden) * 0.11,
+            ($U7 / $responden) * 0.11,
+            ($U8 / $responden) * 0.11,
+            ($U9 / $responden) * 0.11,
+        ];
+        $data['nrrt'] = $nrrt;
+        $nt = (
+            (($U1 / $responden) * 0.11) +
+            (($U2 / $responden) * 0.11) +
+            (($U3 / $responden) * 0.11) +
+            (($U4 / $responden) * 0.11) +
+            (($U5 / $responden) * 0.11) +
+            (($U6 / $responden) * 0.11) +
+            (($U7 / $responden) * 0.11) +
+            (($U8 / $responden) * 0.11) +
+            (($U9 / $responden) * 0.11)
+
+        );
+
+        //ikm
+        $ikm = (
+            ($U1 / $responden) * 0.11 +
+            ($U2 / $responden) * 0.11 +
+            ($U3 / $responden) * 0.11 +
+            ($U4 / $responden) * 0.11 +
+            ($U5 / $responden) * 0.11 +
+            ($U6 / $responden) * 0.11 +
+            ($U7 / $responden) * 0.11 +
+            ($U8 / $responden) * 0.11 +
+            ($U9 / $responden) * 0.11) * 25;
+        $data['ikm'] = $ikm;
+
+
+        if ($ikm >= 25.00 && $ikm <= 64.99) {
+            $mutu = 'D';
+        } elseif ($ikm >= 65.00 && $ikm <= 76.60) {
+            $mutu = 'C';
+        } elseif ($ikm >= 76.61 && $ikm <= 88.30) {
+            $mutu = 'B';
+        } elseif ($ikm >= 88.31 && $ikm <= 100.00) {
+            $mutu = 'A';
+        }
+
+        //nilai index
+        $index = (
+            ($U1 / $responden) * 0.11 +
+            ($U2 / $responden) * 0.11 +
+            ($U3 / $responden) * 0.11 +
+            ($U4 / $responden) * 0.11 +
+            ($U5 / $responden) * 0.11 +
+            ($U6 / $responden) * 0.11 +
+            ($U7 / $responden) * 0.11 +
+            ($U8 / $responden) * 0.11 +
+            ($U9 / $responden) * 0.11);
+        $data['index'] = $index;
+
+        $id = $this->hasil_m->getuser();
+        $kode = $id['KODE_UNIT_KERJA'];
+
+        $data1 = [
+            'KODE_UNIT_KERJA' => $kode,
+            'RATA_RATA' => $rata,
+            'IKM' => $ikm,
+            'N_INDEX' => $index,
+            'RESPONDEN' => $responden,
+            'NRRT' => $nt,
+            'MUTU' => $mutu
+        ];
+        $this->db->where('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        // $this->db->update('t_hasil', $data1);
+        $this->hasil_m->simpan_data($data1);
+
+        $this->load->view('pages/admin/head');
+        $this->load->view('pages/admin/nav', $data);
+        $this->load->view('admin/hasil');
+        $this->load->view('pages/admin/footer');
+    }
+    public function skm()
+    {
+        $query1 = $this->db->get('t_skm');
+        $responden = $query1->num_rows();
+        $id = $this->hasil_m->getuser();;
+        $t_awal = '2023-01-01';
+        $t_akhir = '2023-06-31';
+
+        // hitung total kolom pada rentang waktu tertentu dan untuk id tertentu
+        $this->db->select_sum('U1');
+        $this->db->select_sum('U2');
+        $this->db->select_sum('U3');
+        $this->db->select_sum('U4');
+        $this->db->select_sum('U5');
+        $this->db->select_sum('U6');
+        $this->db->select_sum('U7');
+        $this->db->select_sum('U8');
+        $this->db->select_sum('U9');
+        $this->db->where('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA']);
+        $this->db->where('TANGGAL >=', $t_awal);
+        $this->db->where('TANGGAL <=', $t_akhir);
+        $query = $this->db->get('tabel');
+        $result = $query->row_array();
+
+        $RATA_RATA = ($result['U1'] +
+            $result['U2'] +
+            $result['U3'] +
+            $result['U4'] +
+            $result['U5'] +
+            $result['U6'] +
+            $result['U7'] +
+            $result['U8'] +
+            $result['U9']) / $responden;
+
+        // simpan RATA_RATA ke tabel lain
+        $data = [
+            'KODE_UNIT_KERJA' => $id,
+            'T_AWAL' => $t_awal,
+            'T_AKHIR' => $t_akhir,
+            'RATA_RATA' => $RATA_RATA
+        ];
+        $this->db->insert('t_hasil', $data);
+
+        // tampilkan total di halaman view atau redirect ke halaman lain
+        $data['total'] = $total;
+        $this->load->view('header');
+        $this->load->view('content', $data);
+        $this->load->view('footer');
+    }
+}
