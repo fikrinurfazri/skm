@@ -50,4 +50,9 @@ class Soal extends CI_Controller
         $this->db->insert('t_kuisioner', $data);
         redirect('admin/soal');
     }
+    public function delete($id)
+    {
+        $this->soal_m->delete($id);
+        redirect('admin/soal');
+    }
 }

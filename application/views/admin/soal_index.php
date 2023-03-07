@@ -12,7 +12,7 @@
                                 <th>Link</th>
                                 <th>Tanggal dibuat</th>
                                 <th>Tahun</th>
-                                <th>Semester</th>
+                                <th>Triwulan</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </thead>
@@ -27,12 +27,13 @@
                                         <td><?= $k['TAHUN'] ?></td>
                                         <td><?= $k['SEMESTER'] ?></td>
                                         <td><?= $k['status'] ?></td>
-                                        <td><a href="#" class="btn btn-danger"><i class="bi bi-trash"></i></a></td>
+                                        <td><a href="<?= base_url() ?>admin/soal/delete/<?= $k['id_soal'] ?>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                                            <a href="<?= base_url() ?>admin/hasil" class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                        </td>
                                     </tr>
                                 <?php endforeach ?>
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>

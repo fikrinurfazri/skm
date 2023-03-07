@@ -119,20 +119,26 @@
                                         <tr>
                                             <th rowspan="3">No</th>
                                             <th rowspan="3">UNIT KERJA</th>
-                                            <th colspan="8">HASIL PENILAIAN TAHUN 2023</th>
+                                            <th colspan="12">HASIL PENILAIAN TAHUN 2023</th>
 
                                         </tr>
                                         <tr>
-                                            <th colspan="4">SEMESTER 1</th>
-                                            <th colspan="4">SEMESTER 2</th>
+                                            <th colspan="3">TRIWULAN 1</th>
+                                            <th colspan="3">TRIWULAN 2</th>
+                                            <th colspan="3">TRIWULAN 3</th>
+                                            <th colspan="3">TRIWULAN 4</th>
                                         </tr>
                                         <tr>
                                             <th>RESPONDEN</th>
-                                            <th>NILAI INDEX</th>
                                             <th>NILAI IKM</th>
                                             <th>MUTU PELAYANAN</th>
                                             <th>RESPONDEN</th>
-                                            <th>NILAI INDEX</th>
+                                            <th>NILAI IKM</th>
+                                            <th>MUTU PELAYANAN</th>
+                                            <th>RESPONDEN</th>
+                                            <th>NILAI IKM</th>
+                                            <th>MUTU PELAYANAN</th>
+                                            <th>RESPONDEN</th>
                                             <th>NILAI IKM</th>
                                             <th>MUTU PELAYANAN</th>
 
@@ -140,12 +146,39 @@
                                     </thead>
 
                                     <tbody class="text-center">
-                                        <?php foreach ($hasil as $hs) : ?>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($hasil as $hs) : ?>
                                             <tr class="align-middle">
-                                                <td>1</td>
+                                                <td><?= $no++ ?></td>
                                                 <td><?= $hs['NAMA'] ?></td>
                                                 <td><?= $hs['RESPONDEN'] ?></td>
-                                                <td><?= $hs['N_INDEX'] ?></td>
+                                                <td><?= $hs['IKM'] ?></td>
+
+                                                <?php if ($hs['MUTU'] == 'A') { ?>
+                                                    <td class="bg-primary"><?= $hs['MUTU'] ?></td>
+                                                <?php } elseif ($hs['MUTU'] == 'B') { ?>
+                                                    <td class="bg-success"><?= $hs['MUTU'] ?></td>
+                                                <?php } elseif ($hs['MUTU'] == 'C') { ?>
+                                                    <td class="bg-warning"><?= $hs['MUTU'] ?></td>
+                                                <?php } else { ?>
+                                                    <td class="bg-danger"><?= $hs['MUTU'] ?></td>
+                                                <?php } ?>
+
+                                                <td><?= $hs['RESPONDEN'] ?></td>
+                                                <td><?= $hs['IKM'] ?></td>
+
+                                                <?php if ($hs['MUTU'] == 'A') { ?>
+                                                    <td class="bg-primary"><?= $hs['MUTU'] ?></td>
+                                                <?php } elseif ($hs['MUTU'] == 'B') { ?>
+                                                    <td class="bg-success"><?= $hs['MUTU'] ?></td>
+                                                <?php } elseif ($hs['MUTU'] == 'C') { ?>
+                                                    <td class="bg-warning"><?= $hs['MUTU'] ?></td>
+                                                <?php } else { ?>
+                                                    <td class="bg-danger"><?= $hs['MUTU'] ?></td>
+                                                <?php } ?>
+
+                                                <td><?= $hs['RESPONDEN'] ?></td>
                                                 <td><?= $hs['IKM'] ?></td>
 
                                                 <?php if ($hs['MUTU'] == 'A') { ?>
@@ -159,13 +192,14 @@
                                                 <?php } ?>
 
 
+
+
                                                 <?php if ($hs['RESPONDEN2'] == 1) { ?>
                                                     <td>0</td>
                                                 <?php } else { ?>
                                                     <td><?= $hs['RESPONDEN2'] ?></td>
 
                                                 <?php } ?>
-                                                <td><?= $hs['N_INDEX2'] ?></td>
                                                 <td><?= $hs['IKM2'] ?></td>
 
                                                 <?php if ($hs['MUTU2'] == 'A') { ?>
@@ -184,12 +218,12 @@
 
                                             </tr>
                                         <?php endforeach ?>
+
                                         <?php foreach ($hasilkota as $hsk) : ?>
                                             <tr class="align-middle">
-                                                <td>1</td>
+                                                <td>-</td>
                                                 <td><?= $hsk['NAMA'] ?></td>
                                                 <td><?= $hsk['RESPONDEN'] ?></td>
-                                                <td><?= $hsk['N_INDEX'] ?></td>
                                                 <td><?= $hsk['IKM'] ?></td>
 
                                                 <?php if ($hsk['MUTU'] == 'A') { ?>
@@ -204,7 +238,6 @@
 
 
                                                 <td><?= $hsk['RESPONDEN2'] ?></td>
-                                                <td><?= $hsk['N_INDEX2'] ?></td>
                                                 <td><?= $hsk['IKM2'] ?></td>
 
                                                 <?php if ($hsk['MUTU2'] == 'A') { ?>

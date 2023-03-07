@@ -9,7 +9,7 @@
                 <div class="col-lg-10 col-12 text-center mx-auto">
                     <h2 class="mb-5">Hasil Survei</h2>
                 </div>
-                <button class="btn btn-primary mb-3 col-2"><i class="bi bi-printer"></i></button>
+                <!-- <button class="btn btn-primary mb-3 col-2"><i class="bi bi-printer"></i></button> -->
                 <div class="card shadow-lg">
                     <br>
                     <div class="nav nav-tabs justify-content-center " id="nav-tab" role="tablist">
@@ -24,22 +24,26 @@
                                 <table class="table table-striped table-bordered" width="100%" cellspacing="0">
                                     <thead class="align-middle text-center">
                                         <tr>
-                                            <th rowspan="3">No</th>
-                                            <th rowspan="3">UNIT KERJA</th>
-                                            <th colspan="8">HASIL PENILAIAN TAHUN 2023</th>
+                                            <th colspan="12">HASIL PENILAIAN TAHUN 2023</th>
 
                                         </tr>
                                         <tr>
-                                            <th colspan="4">SEMESTER 1</th>
-                                            <th colspan="4">SEMESTER 2</th>
+                                            <th colspan="3">TRIWULAN 1</th>
+                                            <th colspan="3">TRIWULAN 2</th>
+                                            <th colspan="3">TRIWULAN 3</th>
+                                            <th colspan="3">TRIWULAN 4</th>
                                         </tr>
                                         <tr>
                                             <th>RESPONDEN</th>
-                                            <th>NILAI INDEX</th>
                                             <th>NILAI IKM</th>
                                             <th>MUTU PELAYANAN</th>
                                             <th>RESPONDEN</th>
-                                            <th>NILAI INDEX</th>
+                                            <th>NILAI IKM</th>
+                                            <th>MUTU PELAYANAN</th>
+                                            <th>RESPONDEN</th>
+                                            <th>NILAI IKM</th>
+                                            <th>MUTU PELAYANAN</th>
+                                            <th>RESPONDEN</th>
                                             <th>NILAI IKM</th>
                                             <th>MUTU PELAYANAN</th>
 
@@ -51,10 +55,7 @@
                                         $no = 1;
                                         foreach ($hasil as $hs) : ?>
                                             <tr class="align-middle">
-                                                <td><?= $no++ ?></td>
-                                                <td><?= $hs['NAMA'] ?></td>
                                                 <td><?= $hs['RESPONDEN'] ?></td>
-                                                <td><?= $hs['N_INDEX'] ?></td>
                                                 <td><?= $hs['IKM'] ?></td>
 
                                                 <?php if ($hs['MUTU'] == 'A') { ?>
@@ -67,14 +68,7 @@
                                                     <td class="bg-danger"><?= $hs['MUTU'] ?></td>
                                                 <?php } ?>
 
-
-                                                <?php if ($hs['RESPONDEN2'] == 1) { ?>
-                                                    <td>0</td>
-                                                <?php } else { ?>
-                                                    <td><?= $hs['RESPONDEN2'] ?></td>
-
-                                                <?php } ?>
-                                                <td><?= $hs['N_INDEX2'] ?></td>
+                                                <td><?= $hs['RESPONDEN2'] ?></td>
                                                 <td><?= $hs['IKM2'] ?></td>
 
                                                 <?php if ($hs['MUTU2'] == 'A') { ?>
@@ -83,14 +77,51 @@
                                                     <td class="bg-success"><?= $hs['MUTU2'] ?></td>
                                                 <?php } elseif ($hs['MUTU2'] == 'C') { ?>
                                                     <td class="bg-warning"><?= $hs['MUTU2'] ?></td>
-                                                <?php } elseif ($hs['MUTU2'] == 'D') { ?>
+                                                <?php } else { ?>
                                                     <td class="bg-danger"><?= $hs['MUTU2'] ?></td>
+                                                <?php } ?>
+
+                                                <td><?= $hs['RESPONDEN3'] ?></td>
+                                                <td><?= $hs['IKM3'] ?></td>
+
+                                                <?php if ($hs['MUTU3'] == 'A') { ?>
+                                                    <td class="bg-primary"><?= $hs['MUTU3'] ?></td>
+                                                <?php } elseif ($hs['MUTU3'] == 'B') { ?>
+                                                    <td class="bg-success"><?= $hs['MUTU3'] ?></td>
+                                                <?php } elseif ($hs['MUTU3'] == 'C') { ?>
+                                                    <td class="bg-warning"><?= $hs['MUTU3'] ?></td>
+                                                <?php } else { ?>
+                                                    <td class="bg-danger"><?= $hs['MUTU3'] ?></td>
+                                                <?php } ?>
+
+
+
+
+                                                <?php if ($hs['RESPONDEN4'] == 1) { ?>
+                                                    <td>0</td>
+                                                <?php } else { ?>
+                                                    <td><?= $hs['RESPONDEN4'] ?></td>
+
+                                                <?php } ?>
+                                                <td><?= $hs['IKM4'] ?></td>
+
+                                                <?php if ($hs['MUTU4'] == 'A') { ?>
+                                                    <td class="bg-primary"><?= $hs['MUTU4'] ?></td>
+                                                <?php } elseif ($hs['MUTU4'] == 'B') { ?>
+                                                    <td class="bg-success"><?= $hs['MUTU4'] ?></td>
+                                                <?php } elseif ($hs['MUTU4'] == 'C') { ?>
+                                                    <td class="bg-warning"><?= $hs['MUTU4'] ?></td>
+                                                <?php } elseif ($hs['MUTU4'] == 'D') { ?>
+                                                    <td class="bg-danger"><?= $hs['MUTU4'] ?></td>
                                                 <?php } else { ?>
                                                     <td></td>
                                                 <?php } ?>
 
+
+
                                             </tr>
                                         <?php endforeach ?>
+
 
                                     </tbody>
                                 </table>

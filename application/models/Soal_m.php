@@ -24,4 +24,9 @@ class Soal_m extends CI_Model
             ->join('m_pertanyaan ', 'm_pertanyaan.ID_UNSUR = m_unsur.ID_UNSUR', 'left')
             ->get()->result_array();
     }
+    public function delete($id)
+    {
+        $this->db->where('id_soal', $id);
+        $this->db->delete('t_kuisioner');
+    }
 }

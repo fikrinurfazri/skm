@@ -8,11 +8,13 @@
                         <form action="<?= base_url() ?>admin/soal/add" method="post">
                             <div class="row mb-3">
                                 <div class="form-group col-3">
-                                    <label for="semester">Pilih semester</label>
+                                    <label for="semester">Pilih triwulan</label>
                                     <select id="semester" name="semester" class="form-control">
-                                        <option value="">-- Pilih semester --</option>
+                                        <option value="">-- Pilih triwulan --</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
 
                                     </select>
 

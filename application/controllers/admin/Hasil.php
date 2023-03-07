@@ -22,6 +22,8 @@ class Hasil extends CI_Controller
         $data['responden'] = $this->opd_m->hitung_data();
         $cek = $this->opd_m->hitung_data();
         $responden2 = $this->opd_m->hitung_data_2();
+        $responden3 = $this->opd_m->hitung_data_3();
+        $responden4 = $this->opd_m->hitung_data_4();
         if ($responden2 == '') {
             $responden2 = 1;
         }
@@ -47,6 +49,28 @@ class Hasil extends CI_Controller
         $U7_2 = $this->opd_m->U7_2();
         $U8_2 = $this->opd_m->U8_2();
         $U9_2 = $this->opd_m->U9_2();
+
+        $U1_3 = $this->opd_m->U1_3();
+        $U2_3 = $this->opd_m->U2_3();
+        $U3_3 = $this->opd_m->U3_3();
+        $U4_3 = $this->opd_m->U4_3();
+        $U5_3 = $this->opd_m->U5_3();
+        $U6_3 = $this->opd_m->U6_3();
+        $U7_3 = $this->opd_m->U7_3();
+        $U8_3 = $this->opd_m->U8_3();
+        $U9_3 = $this->opd_m->U9_3();
+
+        $U1_4 = $this->opd_m->U1_4();
+        $U2_4 = $this->opd_m->U2_4();
+        $U3_4 = $this->opd_m->U3_4();
+        $U4_4 = $this->opd_m->U4_4();
+        $U5_4 = $this->opd_m->U5_4();
+        $U6_4 = $this->opd_m->U6_4();
+        $U7_4 = $this->opd_m->U7_4();
+        $U8_4 = $this->opd_m->U8_4();
+        $U9_4 = $this->opd_m->U9_4();
+
+
 
         //Unsur 1 - 9
         $unsur = [
@@ -128,6 +152,8 @@ class Hasil extends CI_Controller
         } else {
             $mutu = 'Tidak terdefinisi';
         }
+
+
         $ikm2 = (
             ($U1_2 / $responden2) * 0.11 +
             ($U2_2 / $responden2) * 0.11 +
@@ -138,6 +164,7 @@ class Hasil extends CI_Controller
             ($U7_2 / $responden2) * 0.11 +
             ($U8_2 / $responden2) * 0.11 +
             ($U9_2 / $responden2) * 0.11) * 25;
+
         $data['ikm2'] = $ikm2;
 
 
@@ -151,6 +178,58 @@ class Hasil extends CI_Controller
             $mutu2 = 'A';
         } else {
             $mutu2 = 'Tidak terdefinisi';
+        }
+
+        $ikm3 = (
+            ($U1_3 / $responden3) * 0.11 +
+            ($U2_3 / $responden3) * 0.11 +
+            ($U3_3 / $responden3) * 0.11 +
+            ($U4_3 / $responden3) * 0.11 +
+            ($U5_3 / $responden3) * 0.11 +
+            ($U6_3 / $responden3) * 0.11 +
+            ($U7_3 / $responden3) * 0.11 +
+            ($U8_3 / $responden3) * 0.11 +
+            ($U9_3 / $responden3) * 0.11) * 25;
+
+        $data['ikm3'] = $ikm3;
+
+
+        if ($ikm3 >= 25.00 && $ikm3 <= 64.99) {
+            $mutu3 = 'D';
+        } elseif ($ikm3 >= 65.00 && $ikm3 <= 76.60) {
+            $mutu3 = 'C';
+        } elseif ($ikm3 >= 76.61 && $ikm3 <= 88.30) {
+            $mutu3 = 'B';
+        } elseif ($ikm3 >= 88.31 && $ikm3 <= 100.00) {
+            $mutu3 = 'A';
+        } else {
+            $mutu3 = 'Tidak terdefinisi';
+        }
+
+        $ikm4 = (
+            ($U1_4 / $responden4) * 0.11 +
+            ($U2_4 / $responden4) * 0.11 +
+            ($U3_4 / $responden4) * 0.11 +
+            ($U4_4 / $responden4) * 0.11 +
+            ($U5_4 / $responden4) * 0.11 +
+            ($U6_4 / $responden4) * 0.11 +
+            ($U7_4 / $responden4) * 0.11 +
+            ($U8_4 / $responden4) * 0.11 +
+            ($U9_4 / $responden4) * 0.11) * 25;
+
+        $data['ikm4'] = $ikm4;
+
+
+        if ($ikm4 >= 25.00 && $ikm4 <= 64.99) {
+            $mutu4 = 'D';
+        } elseif ($ikm4 >= 65.00 && $ikm4 <= 76.60) {
+            $mutu4 = 'C';
+        } elseif ($ikm4 >= 76.61 && $ikm4 <= 88.30) {
+            $mutu4 = 'B';
+        } elseif ($ikm4 >= 88.31 && $ikm4 <= 100.00) {
+            $mutu4 = 'A';
+        } else {
+            $mutu4 = 'Tidak terdefinisi';
         }
 
         //nilai index
@@ -187,13 +266,19 @@ class Hasil extends CI_Controller
             'RATA_RATA' => number_format($rata, 2, '.', ','),
             'IKM' => number_format($ikm, 2, '.', ','),
             'IKM2' => number_format($ikm2, 2, '.', ','),
+            'IKM3' => number_format($ikm3, 2, '.', ','),
+            'IKM4' => number_format($ikm4, 2, '.', ','),
             'N_INDEX' => number_format($index, 2, '.', ','),
             'N_INDEX2' => number_format($index2, 2, '.', ','),
             'RESPONDEN' => $responden,
             'RESPONDEN2' => $responden2,
+            'RESPONDEN3' => $responden3,
+            'RESPONDEN4' => $responden4,
             'NRRT' => number_format($nt, 2, '.', ','),
             'MUTU' => $mutu,
             'MUTU2' => $mutu2,
+            'MUTU3' => $mutu3,
+            'MUTU4' => $mutu4,
             'TAHUN' => date('Y')
         ];
         $this->opd_m->simpan_data($data1);
