@@ -311,6 +311,6 @@ class Hasil extends CI_Controller
         $data['ikm'] = $this->opd_m->getikm();
         $data['jk'] = $this->opd_m->getjk4();
         $data['pendidikan'] = $this->opd_m->getpnd4();
-        $this->load->view('pages/admin/print/4P', $data);
+        $this->load->view('pages/admin/print/4', $data);
     }
 }
