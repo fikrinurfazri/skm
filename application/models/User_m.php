@@ -24,4 +24,16 @@ class User_m extends CI_Model
             ->like('KODE', $data['KODE_UNIT_KERJA'])
             ->get()->result_array();
     }
+    public function delete($id)
+    {
+        $this->db->where('ID_ADMIN', $id);
+        $this->db->delete('admin');
+    }
+    public function update($id)
+    {
+        return $this->db->select('*')
+            ->from('admin')
+            ->where('ID_ADMIN', $id)
+            ->get()->row_array();
+    }
 }

@@ -48,6 +48,9 @@ class Kuisioner extends CI_Controller
             'U7' => $this->input->post('u7'),
             'U8' => $this->input->post('u8'),
             'U9' => $this->input->post('u9'),
+            'PENDIDIKAN' => $this->input->post('pendidikan'),
+            'JK' => $this->input->post('jk'),
+            'HP' => $this->input->post('hp'),
             'TANGGAL' => date('Y-m-d')
         ];
         $this->db->insert('t_skm', $data2);

@@ -17,7 +17,6 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <!-- <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus"></i> Pengaturan User</h5> -->
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <form action="<?= base_url() ?>admin/user/simpan" method="post">
@@ -75,8 +74,8 @@
                                         <td><?= $get['NAMA'] ?></td>
                                         <td><?= $get['USERNAME'] ?></td>
                                         <td>
-                                            <button class="btn btn-success"><i class="bi bi-pencil"></i></button>
-                                            <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                            <a href="<?= base_url() ?>admin/user/update/<?= $get['ID_ADMIN'] ?>" class="btn btn-success"><i class="bi bi-pencil"></i></a>
+                                            <a href="<?= base_url() ?>admin/user/delete/<?= $get['ID_ADMIN'] ?>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                                         </td>
 
                                     </tr>

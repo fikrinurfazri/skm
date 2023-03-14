@@ -12,6 +12,7 @@
                 <!-- <button class="btn btn-primary mb-3 col-2"><i class="bi bi-printer"></i></button> -->
                 <div class="card shadow-lg">
                     <br>
+
                     <div class="nav nav-tabs justify-content-center " id="nav-tab" role="tablist">
                         <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
                             <h2>2023</h2>
@@ -21,7 +22,13 @@
                     <div class="card-body">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                                <div class="mb-2">
+                                    <a href="<?= base_url() ?>admin/hasil/getprint1" class="btn btn-primary" target="_blank"><i class="bi bi-printer"></i> 1</a>
+                                    <a href="<?= base_url() ?>admin/hasil/getprint2" class="btn btn-primary" target="_blank"><i class="bi bi-printer"></i> 2</a>
+                                    <a href="<?= base_url() ?>admin/hasil/getprint3" class="btn btn-primary" target="_blank"><i class="bi bi-printer"></i> 3</a>
+                                    <a href="<?= base_url() ?>admin/hasil/getprint4" class="btn btn-primary" target="_blank"><i class="bi bi-printer"></i> 4</a>
+                                </div>
+                                <table class="table table-striped table-bordered" style="font-size:12px;" width="100%" cellspacing="0">
                                     <thead class="align-middle text-center">
                                         <tr>
                                             <th colspan="12">HASIL PENILAIAN TAHUN 2023</th>
@@ -97,14 +104,8 @@
 
 
 
-                                                <?php if ($hs['RESPONDEN4'] == 1) { ?>
-                                                    <td>0</td>
-                                                <?php } else { ?>
-                                                    <td><?= $hs['RESPONDEN4'] ?></td>
-
-                                                <?php } ?>
+                                                <td><?= $hs['RESPONDEN4'] ?></td>
                                                 <td><?= $hs['IKM4'] ?></td>
-
                                                 <?php if ($hs['MUTU4'] == 'A') { ?>
                                                     <td class="bg-primary"><?= $hs['MUTU4'] ?></td>
                                                 <?php } elseif ($hs['MUTU4'] == 'B') { ?>

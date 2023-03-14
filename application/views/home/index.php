@@ -114,7 +114,7 @@
                     <div class="card-body">
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                <table class="table table-striped table-bordered" width="100%" cellspacing="0">
+                                <table class="table table-striped table-bordered" style="font-size:12px;" width="100%" cellspacing="0">
                                     <thead class="align-middle text-center">
                                         <tr>
                                             <th rowspan="3">No</th>
@@ -165,41 +165,7 @@
                                                     <td class="bg-danger"><?= $hs['MUTU'] ?></td>
                                                 <?php } ?>
 
-                                                <td><?= $hs['RESPONDEN'] ?></td>
-                                                <td><?= $hs['IKM'] ?></td>
-
-                                                <?php if ($hs['MUTU'] == 'A') { ?>
-                                                    <td class="bg-primary"><?= $hs['MUTU'] ?></td>
-                                                <?php } elseif ($hs['MUTU'] == 'B') { ?>
-                                                    <td class="bg-success"><?= $hs['MUTU'] ?></td>
-                                                <?php } elseif ($hs['MUTU'] == 'C') { ?>
-                                                    <td class="bg-warning"><?= $hs['MUTU'] ?></td>
-                                                <?php } else { ?>
-                                                    <td class="bg-danger"><?= $hs['MUTU'] ?></td>
-                                                <?php } ?>
-
-                                                <td><?= $hs['RESPONDEN'] ?></td>
-                                                <td><?= $hs['IKM'] ?></td>
-
-                                                <?php if ($hs['MUTU'] == 'A') { ?>
-                                                    <td class="bg-primary"><?= $hs['MUTU'] ?></td>
-                                                <?php } elseif ($hs['MUTU'] == 'B') { ?>
-                                                    <td class="bg-success"><?= $hs['MUTU'] ?></td>
-                                                <?php } elseif ($hs['MUTU'] == 'C') { ?>
-                                                    <td class="bg-warning"><?= $hs['MUTU'] ?></td>
-                                                <?php } else { ?>
-                                                    <td class="bg-danger"><?= $hs['MUTU'] ?></td>
-                                                <?php } ?>
-
-
-
-
-                                                <?php if ($hs['RESPONDEN2'] == 1) { ?>
-                                                    <td>0</td>
-                                                <?php } else { ?>
-                                                    <td><?= $hs['RESPONDEN2'] ?></td>
-
-                                                <?php } ?>
+                                                <td><?= $hs['RESPONDEN2'] ?></td>
                                                 <td><?= $hs['IKM2'] ?></td>
 
                                                 <?php if ($hs['MUTU2'] == 'A') { ?>
@@ -208,18 +174,41 @@
                                                     <td class="bg-success"><?= $hs['MUTU2'] ?></td>
                                                 <?php } elseif ($hs['MUTU2'] == 'C') { ?>
                                                     <td class="bg-warning"><?= $hs['MUTU2'] ?></td>
-                                                <?php } elseif ($hs['MUTU2'] == 'D') { ?>
+                                                <?php } else { ?>
                                                     <td class="bg-danger"><?= $hs['MUTU2'] ?></td>
+                                                <?php } ?>
+
+                                                <td><?= $hs['RESPONDEN3'] ?></td>
+                                                <td><?= $hs['IKM3'] ?></td>
+
+                                                <?php if ($hs['MUTU3'] == 'A') { ?>
+                                                    <td class="bg-primary"><?= $hs['MUTU3'] ?></td>
+                                                <?php } elseif ($hs['MUTU3'] == 'B') { ?>
+                                                    <td class="bg-success"><?= $hs['MUTU3'] ?></td>
+                                                <?php } elseif ($hs['MUTU3'] == 'C') { ?>
+                                                    <td class="bg-warning"><?= $hs['MUTU3'] ?></td>
+                                                <?php } else { ?>
+                                                    <td class="bg-danger"><?= $hs['MUTU3'] ?></td>
+                                                <?php } ?>
+
+                                                <!-- Triwulan 4 -->
+                                                <td><?= $hs['RESPONDEN4'] ?></td>
+                                                <td><?= $hs['IKM4'] ?></td>
+                                                <?php if ($hs['MUTU4'] == 'A') { ?>
+                                                    <td class="bg-primary"><?= $hs['MUTU4'] ?></td>
+                                                <?php } elseif ($hs['MUTU4'] == 'B') { ?>
+                                                    <td class="bg-success"><?= $hs['MUTU4'] ?></td>
+                                                <?php } elseif ($hs['MUTU4'] == 'C') { ?>
+                                                    <td class="bg-warning"><?= $hs['MUTU4'] ?></td>
+                                                <?php } elseif ($hs['MUTU4'] == 'D') { ?>
+                                                    <td class="bg-danger"><?= $hs['MUTU4'] ?></td>
                                                 <?php } else { ?>
                                                     <td></td>
                                                 <?php } ?>
-
-
-
                                             </tr>
                                         <?php endforeach ?>
 
-                                        <?php foreach ($hasilkota as $hsk) : ?>
+                                        <!-- <?php foreach ($hasilkota as $hsk) : ?>
                                             <tr class="align-middle">
                                                 <td>-</td>
                                                 <td><?= $hsk['NAMA'] ?></td>
@@ -251,11 +240,8 @@
                                                 <?php } else { ?>
                                                     <td></td>
                                                 <?php } ?>
-
-
-
                                             </tr>
-                                        <?php endforeach ?>
+                                        <?php endforeach ?> -->
                                     </tbody>
                                 </table>
                             </div>

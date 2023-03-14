@@ -3,9 +3,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-12">
+                    <div class="col-12 d-flex">
+                        <div class="col-1">
+                            <img src="<?= base_url() ?>assets/images/logotasik.png" alt="" class="col-12">
+                        </div>
+                        <div class="col-10 text-center">
+                            <h2>KUESIONER SURVEI KEPUASAN MASYARAKAT <br> <?= $kuis['nama'] ?></h2>
+                        </div>
+                        <div class="col-1">
+                            <img src="<?= base_url() ?>assets/images/akhlak2.png" alt="" class="col-12">
+                            <img src="<?= base_url() ?>assets/images/bangga.png" alt="" class="col-12"> <br>
+                        </div>
+                    </div>
 
 
-                    <h2 class="mb-2"> KUESIONER SURVEI KEPUASAN MASYARAKAT (SKM) <?= $kuis['nama'] ?></h2>
+                    <!-- <h2 class="mb-2">
+                        KUESIONER SURVEI KEPUASAN MASYARAKAT (SKM) <br> <?= $kuis['nama'] ?></h2> -->
                     <div class="custom-text-box">
                         <form action="<?= base_url() ?>kuisioner/kirim" method="post">
                             <p id="tanggal"> </p>
@@ -50,6 +63,10 @@
                                     <input type="radio" name="jk" id="jk" value="P"> Perempuan
                                 </div>
 
+                            </div>
+                            <div class="form-group col-3 mb-2">
+                                <label for="hp"> NO HP/WA</label>
+                                <input type="text" name="hp" id="hp" class="form-control">
                             </div>
                             <div class="form-group mb-5">
                                 <label for="pelayanan"> Jenis Layanan Yang Diterima</label>

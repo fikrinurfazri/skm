@@ -37,6 +37,111 @@ class Opd_m extends CI_Model
         }
     }
 
+    public function getjk()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $t_awal = '01';
+        $t_akhir = '03';
+        $this->db->select('JK,COUNT(JK) as jumlah')
+            ->from('t_skm')
+            ->group_by('JK')
+            ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getjk2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $t_awal = '04';
+        $t_akhir = '06';
+        $this->db->select('JK,COUNT(JK) as jumlah')
+            ->from('t_skm')
+            ->group_by('JK')
+            ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getjk3()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $t_awal = '07';
+        $t_akhir = '09';
+        $this->db->select('JK,COUNT(JK) as jumlah')
+            ->from('t_skm')
+            ->group_by('JK')
+            ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getjk4()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $t_awal = '10';
+        $t_akhir = '12';
+        $this->db->select('JK,COUNT(JK) as jumlah')
+            ->from('t_skm')
+            ->group_by('JK')
+            ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getpnd()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $t_awal = '01';
+        $t_akhir = '03';
+        $this->db->select('PENDIDIKAN,COUNT(PENDIDIKAN) as jumlah')
+            ->from('t_skm')
+            ->group_by('PENDIDIKAN')
+            ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getpnd2()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $t_awal = '04';
+        $t_akhir = '06';
+        $this->db->select('PENDIDIKAN,COUNT(PENDIDIKAN) as jumlah')
+            ->from('t_skm')
+            ->group_by('PENDIDIKAN')
+            ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getpnd3()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $t_awal = '07';
+        $t_akhir = '09';
+        $this->db->select('PENDIDIKAN,COUNT(PENDIDIKAN) as jumlah')
+            ->from('t_skm')
+            ->group_by('PENDIDIKAN')
+            ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function getpnd4()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        $t_awal = '10';
+        $t_akhir = '12';
+        $this->db->select('PENDIDIKAN,COUNT(PENDIDIKAN) as jumlah')
+            ->from('t_skm')
+            ->group_by('PENDIDIKAN')
+            ->like('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->where("DATE_FORMAT(TANGGAL, '%m') BETWEEN '$t_awal' AND '$t_akhir'");
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function U1()
     {
         $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
@@ -521,5 +626,14 @@ class Opd_m extends CI_Model
             ->from('t_hasil')
             ->where('KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
             ->get()->result_array();
+    }
+    public function getikm()
+    {
+        $id = $this->db->get_where('admin', ['ID_ADMIN' => $this->session->userdata('ID_ADMIN')])->row_array();
+        return $this->db->select('*')
+            ->from('t_hasil')
+            ->join('admin ', 'admin.KODE_UNIT_KERJA = t_hasil.KODE_UNIT_KERJA')
+            ->where('t_hasil.KODE_UNIT_KERJA', $id['KODE_UNIT_KERJA'])
+            ->get()->row_array();
     }
 }

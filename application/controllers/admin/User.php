@@ -38,4 +38,31 @@ class User extends CI_Controller
         $this->db->insert('admin', $data);
         redirect('admin/subadmin');
     }
+    public function delete($id)
+    {
+        $this->user_m->delete($id);
+        redirect('admin/user');
+    }
+    public function update($id)
+    {
+        $data['user'] = $this->user_m->getuser();
+        $data['admin'] = $this->user_m->update($id);
+
+        $this->load->view('pages/admin/head');
+        $this->load->view('pages/admin/nav', $data);
+        $this->load->view('admin/update_user');
+        $this->load->view('pages/admin/footer');
+    }
+    public function simpanupdate()
+    {
+        $password = $this->input->post('password');
+        $id = $this->input->post('id');
+        $data = [
+            'NAMA' => $this->input->post('nama'),
+            'PASSWORD' => password_hash($password, PASSWORD_DEFAULT),
+        ];
+        $this->db->where('ID_ADMIN', $id);
+        $this->db->update('admin', $data);
+        redirect('admin/user');
+    }
 }

@@ -24,9 +24,6 @@ class Hasil extends CI_Controller
         $responden2 = $this->opd_m->hitung_data_2();
         $responden3 = $this->opd_m->hitung_data_3();
         $responden4 = $this->opd_m->hitung_data_4();
-        if ($responden2 == '') {
-            $responden2 = 1;
-        }
         $responden = $cek;
 
 
@@ -287,5 +284,33 @@ class Hasil extends CI_Controller
         $this->load->view('pages/admin/nav', $data);
         $this->load->view('admin/hasil');
         $this->load->view('pages/admin/footer');
+    }
+    public function getprint1()
+    {
+        $data['ikm'] = $this->opd_m->getikm();
+        $data['jk'] = $this->opd_m->getjk();
+        $data['pendidikan'] = $this->opd_m->getpnd();
+        $this->load->view('pages/admin/print/1', $data);
+    }
+    public function getprint2()
+    {
+        $data['ikm'] = $this->opd_m->getikm();
+        $data['jk'] = $this->opd_m->getjk2();
+        $data['pendidikan'] = $this->opd_m->getpnd2();
+        $this->load->view('pages/admin/print/2', $data);
+    }
+    public function getprint3()
+    {
+        $data['ikm'] = $this->opd_m->getikm();
+        $data['jk'] = $this->opd_m->getjk3();
+        $data['pendidikan'] = $this->opd_m->getpnd3();
+        $this->load->view('pages/admin/print/3', $data);
+    }
+    public function getprint4()
+    {
+        $data['ikm'] = $this->opd_m->getikm();
+        $data['jk'] = $this->opd_m->getjk4();
+        $data['pendidikan'] = $this->opd_m->getpnd4();
+        $this->load->view('pages/admin/print/4P', $data);
     }
 }
